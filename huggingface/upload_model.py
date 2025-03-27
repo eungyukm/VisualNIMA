@@ -23,9 +23,9 @@ if token is None:
 api = HfApi()
 try:
     api.create_repo(name="nima_finetuned", token=token, private=False)
-    print(f"✅ 저장소 생성 완료: {full_repo_name}")
+    print(f"저장소 생성 완료: {full_repo_name}")
 except Exception as e:
-    print(f"⚠️ 저장소 생성 중 예외 발생 (이미 존재할 수도 있음): {e}")
+    print(f"저장소 생성 중 예외 발생 (이미 존재할 수도 있음): {e}")
 
 # 모델 파일 업로드
 upload_file(
@@ -35,4 +35,4 @@ upload_file(
     token=token,
 )
 
-print(f"✅ 모델 업로드 완료: https://huggingface.co/{full_repo_name}/blob/main/nima_finetuned.pth")
+print(f"모델 업로드 완료: https://huggingface.co/{full_repo_name}/blob/main/nima_finetuned.pth")
