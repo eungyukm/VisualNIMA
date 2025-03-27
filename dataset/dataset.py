@@ -21,9 +21,12 @@ class AVADataset(Dataset):
         if self.transform:
             image = self.transform(image)
 
-        # 예시로, score가 1~10의 정수라고 가정 (클래스 분류 방식)
+        # score가 1~10의 정수로 분류되는 경우 (클래스 분류)
         score = self.annotations.iloc[idx]['score']
         score = int(score)
+
+        # 연속적인 값이 있을 경우 (회귀 문제로 처리할 때)
+        # score = float(score)  # 회귀 문제에서는 이 방식으로 처리할 수 있습니다.
 
         return image, score
 
